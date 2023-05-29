@@ -7,6 +7,7 @@ pipeline {
        stage ('Build'){
         steps {
           sh 'java -version'
+          sh '$MAVEN_HOME -version'
           sh '/Users/valentynkushnir/~~tools/apache-maven-3.8.4/bin/mvn clean package'
         }
          post {
@@ -24,6 +25,9 @@ pipeline {
              }
            }
            stage ('Deploy to prod') {
+             options {
+               timeout(time: 1, unit: 'MINUTES')
+             }
              steps {
                input "Please select to proceed or to abort?"
                sh "cp **/target/*.war /Users/valentynkushnir/~~tools/tomcat-prod/webapps"
