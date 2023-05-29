@@ -6,7 +6,7 @@ pipeline {
   stages{
        stage ('Build'){
         steps {
-          sh './Users/valentynkushnir/~~tools/apache-maven-3.8.4/bin/mvn clean package'
+          sh '/Users/valentynkushnir/~~tools/apache-maven-3.8.4/bin/mvn clean package'
         }
          post {
            success {
