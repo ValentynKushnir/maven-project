@@ -25,7 +25,7 @@ pipeline {
            }
            stage ('Deploy to prod') {
              steps {
-               input Please select to proceed or to abort?
+               input "Please select to proceed or to abort?"
                sh "cp **/target/*.war /Users/valentynkushnir/~~tools/tomcat-prod/webapps"
              }     
            }
